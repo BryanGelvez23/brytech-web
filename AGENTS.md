@@ -30,10 +30,11 @@ Un modelo con varios colores es un solo producto y varias variantes. El carrito 
 
 La carpeta `assets/productos/mandos/AuricularesCable/` contiene fotos de auriculares QKZ AK6. En el prototipo se muestran como audífonos, sin mover archivos.
 
-## Paleta
+## Diseño y paleta
 
-- Grafito `#111318`
-- Blanco `#FFFFFF`
-- Azul `#2563EB`
-- Acero `#64748B`
-- Gris `#F1F5F9`
+Diseño basado en la propuesta de Figma (Inter, fondos cálidos, un solo azul de acento). Los colores viven en `:root` de `styles.css`:
+
+- Tinta `#17191C` · Gris texto `#66696E` · Azul `#1555F5`
+- Cálido `#F5F4F0` · Fondo de fotos `#EDEFF2` · Oscuro `#101319`
+
+Las imágenes de `assets/banners/*.webp` son ILUSTRATIVAS (de Figma) y deben reemplazarse por fotos propias con el mismo nombre. No presentarlas como fotos de productos de BryTech.

@@ -13,13 +13,13 @@
   "use strict";
 
   var CATEGORIAS = [
-    { id: "audifonos", nombre: "Audífonos", descripcion: "Inalámbricos e intraurales" },
-    { id: "auriculares", nombre: "Auriculares de diadema", descripcion: "Diademas para estudio, oficina y gaming" },
-    { id: "mouse", nombre: "Mouse", descripcion: "Ratones para trabajo y entretenimiento" },
-    { id: "teclados", nombre: "Teclados", descripcion: "Teclados compactos y de escritorio" },
-    { id: "mandos", nombre: "Mandos y controles", descripcion: "Controles para consolas y PC" },
-    { id: "combos", nombre: "Combos", descripcion: "Conjuntos de productos (sin fotografías aún)" },
-    { id: "accesorios", nombre: "Accesorios", descripcion: "Complementos tecnológicos (sin fotografías aún)" }
+    { id: "audifonos", nombre: "Audífonos", descripcion: "Inalámbricos e intraurales", lema: "Encuentra tu sonido" },
+    { id: "auriculares", nombre: "Auriculares de diadema", descripcion: "Diademas para estudio, oficina y gaming", lema: "Para estudiar, trabajar y jugar" },
+    { id: "mouse", nombre: "Mouse", descripcion: "Ratones para trabajo y entretenimiento", lema: "Haz más. Juega mejor." },
+    { id: "teclados", nombre: "Teclados", descripcion: "Teclados compactos y de escritorio", lema: "Teclea a tu ritmo" },
+    { id: "mandos", nombre: "Mandos y controles", descripcion: "Controles para consolas y PC", lema: "Controla cada partida" },
+    { id: "combos", nombre: "Combos", descripcion: "Conjuntos de productos", lema: "Más por tu setup" },
+    { id: "accesorios", nombre: "Accesorios", descripcion: "Complementos tecnológicos", lema: "Pequeños grandes aliados" }
   ];
 
   /**
@@ -42,7 +42,7 @@
       destacado: false,
       demo: true,
       precio: 59000,
-      descripcion: "Audífonos intraurales del modelo Transformers TF-T51, según la fotografía original disponible. Las características técnicas no se detallan en este prototipo porque no fueron verificadas.",
+      descripcion: "Audífonos Transformers TF-T51.",
       caracteristicas: [
         "Categoría: audífonos.",
         "Modelo identificado en el archivo: Transformers TF-T51.",
@@ -60,7 +60,7 @@
       destacado: true,
       demo: true,
       precio: 79000,
-      descripcion: "Audífonos inalámbricos ASUS Idol R-27 con estuche de carga, según la fotografía original. El archivo de imagen incluye un prefijo con guion bajo y espacio; la ruta se respeta tal como está en el proyecto.",
+      descripcion: "Audífonos inalámbricos ASUS Idol R-27 con estuche de carga.",
       caracteristicas: [
         "Categoría: audífonos.",
         "Modelo identificado en el archivo: ASUS Idol R-27.",
@@ -78,7 +78,7 @@
       destacado: true,
       demo: true,
       precio: 69000,
-      descripcion: "Audífonos Lenovo GM2 Pro. La ficha se construyó a partir del nombre del archivo y de la fotografía original. No se añaden especificaciones no verificadas.",
+      descripcion: "Audífonos Lenovo GM2 Pro.",
       caracteristicas: [
         "Categoría: audífonos.",
         "Marca y modelo identificados: Lenovo GM2 Pro.",
@@ -96,7 +96,7 @@
       destacado: false,
       demo: true,
       precio: 65000,
-      descripcion: "Audífonos Lenovo LP40 Pro, presentados con su fotografía original. Precio y existencias de este prototipo son de demostración.",
+      descripcion: "Audífonos Lenovo LP40 Pro.",
       caracteristicas: [
         "Categoría: audífonos.",
         "Marca y modelo identificados: Lenovo LP40 Pro.",
@@ -114,7 +114,7 @@
       destacado: false,
       demo: true,
       precio: 55000,
-      descripcion: "Audífonos Lenovo LP19. La descripción comercial detallada se completará cuando exista ficha técnica verificada.",
+      descripcion: "Audífonos Lenovo LP19.",
       caracteristicas: [
         "Categoría: audífonos.",
         "Marca y modelo identificados: Lenovo LP19.",
@@ -132,7 +132,7 @@
       destacado: false,
       demo: true,
       precio: 62000,
-      descripcion: "Audífonos Lenovo XT62, con fotografía original del catálogo. Este prototipo no afirma conectividad, autonomía ni otras especificaciones.",
+      descripcion: "Audífonos Lenovo XT62.",
       caracteristicas: [
         "Categoría: audífonos.",
         "Marca y modelo identificados: Lenovo XT62.",
@@ -150,7 +150,7 @@
       destacado: false,
       demo: true,
       precio: 49000,
-      descripcion: "Auriculares de cable identificados como QKZ AK6 a partir del empaque y de los nombres de archivo. Las fotografías están en assets/productos/mandos/AuricularesCable/ y no se movieron. Revisión pendiente de ubicación definitiva.",
+      descripcion: "Auriculares de cable QKZ AK6.",
       caracteristicas: [
         "Categoría asignada en el prototipo: audífonos.",
         "Modelo visible en el empaque: QKZ AK6.",
@@ -187,7 +187,7 @@
       destacado: false,
       demo: true,
       precio: 89000,
-      descripcion: "Auriculares de diadema Lenovo EH140, con fotografía original. No se listan especificaciones técnicas no verificadas.",
+      descripcion: "Auriculares de diadema Lenovo EH140.",
       caracteristicas: [
         "Categoría: auriculares de diadema.",
         "Marca y modelo identificados: Lenovo EH140.",
@@ -205,7 +205,7 @@
       destacado: false,
       demo: true,
       precio: 99000,
-      descripcion: "Auriculares de diadema ASUS Idol AS-D96. La ficha usa únicamente el nombre del archivo y la fotografía disponible.",
+      descripcion: "Auriculares de diadema ASUS Idol AS-D96.",
       caracteristicas: [
         "Categoría: auriculares de diadema.",
         "Modelo identificado: ASUS Idol AS-D96.",
@@ -223,7 +223,7 @@
       destacado: true,
       demo: true,
       precio: 149000,
-      descripcion: "Auriculares de diadema ONIKUMA GT808, según la fotografía original. El prototipo no afirma autonomía, conectividad ni otras especificaciones.",
+      descripcion: "Auriculares de diadema ONIKUMA GT808.",
       caracteristicas: [
         "Categoría: auriculares de diadema.",
         "Modelo identificado: ONIKUMA GT808.",
@@ -241,7 +241,7 @@
       destacado: true,
       demo: true,
       precio: 189000,
-      descripcion: "Teclado compacto Ajazz NK61. Las fotografías muestran tres acabados de color del mismo modelo, por lo que se agrupan como variantes y no como productos independientes. En una de las imágenes aparece la marca Nacodex sobre el reposamuñecas.",
+      descripcion: "Teclado compacto Ajazz NK61, disponible en tres acabados: blanco, negro, y negro con gris y amarillo.",
       caracteristicas: [
         "Categoría: teclados.",
         "Modelo identificado en archivos: Ajazz NK61.",
@@ -266,7 +266,7 @@
       destacado: false,
       demo: true,
       precio: 219000,
-      descripcion: "Teclado Ajazz NK68. Las tres fotografías disponibles corresponden al acabado lila del mismo modelo (incluyendo una imagen encendida). Se tratan como galería de una sola variante, no como productos distintos.",
+      descripcion: "Teclado Ajazz NK68 en acabado lila.",
       caracteristicas: [
         "Categoría: teclados.",
         "Modelo identificado: Ajazz NK68.",
@@ -300,7 +300,7 @@
       destacado: false,
       demo: true,
       precio: 249000,
-      descripcion: "Teclado Ajazz AK820 en acabado gris. Las dos fotografías se usan como galería del mismo producto y la misma variante.",
+      descripcion: "Teclado Ajazz AK820 en acabado gris.",
       caracteristicas: [
         "Categoría: teclados.",
         "Modelo identificado: Ajazz AK820.",
@@ -332,7 +332,7 @@
       destacado: false,
       demo: true,
       precio: 45000,
-      descripcion: "Mouse de perfil simple identificado en el archivo como Mouse Minimalista Inalámbrico. No hay modelo comercial adicional en el nombre del archivo.",
+      descripcion: "Mouse inalámbrico de diseño minimalista.",
       caracteristicas: [
         "Categoría: mouse.",
         "Nombre de archivo: Mouse Minimalista Inalámbrico.",
@@ -350,7 +350,7 @@
       destacado: true,
       demo: true,
       precio: 179000,
-      descripcion: "Mouse Attack Shark X11. Negro, blanco y rojo se tratan como variantes de color del mismo modelo. El prototipo no afirma DPI, peso ni tipo de sensor.",
+      descripcion: "Mouse Attack Shark X11, disponible en negro, blanco y rojo.",
       caracteristicas: [
         "Categoría: mouse.",
         "Modelo identificado: Attack Shark X11.",
@@ -375,7 +375,7 @@
       destacado: false,
       demo: true,
       precio: 69000,
-      descripcion: "Mouse Ajazz 159P, con fotografía original. Solo hay una imagen, sin variantes de color identificadas.",
+      descripcion: "Mouse Ajazz 159P.",
       caracteristicas: [
         "Categoría: mouse.",
         "Modelo identificado: Ajazz 159P.",
@@ -393,7 +393,7 @@
       destacado: true,
       demo: true,
       precio: 79000,
-      descripcion: "Mouse Ajazz 139 V2. Negro, blanco y rojo se agrupan como variantes de un mismo producto.",
+      descripcion: "Mouse Ajazz 139 V2, disponible en negro, blanco y rojo.",
       caracteristicas: [
         "Categoría: mouse.",
         "Modelo identificado: Ajazz 139 V2.",
@@ -418,7 +418,7 @@
       destacado: false,
       demo: true,
       precio: 59000,
-      descripcion: "Mouse inalámbrico Lenovo N220. Negro y blanco son variantes de color del mismo modelo.",
+      descripcion: "Mouse inalámbrico Lenovo N220, disponible en negro y blanco.",
       caracteristicas: [
         "Categoría: mouse.",
         "Modelo identificado: Lenovo N220.",
@@ -441,7 +441,7 @@
       destacado: false,
       demo: true,
       precio: 72000,
-      descripcion: "Mouse INPHIC MP6, con fotografía original. No hay variantes de color identificadas en los archivos.",
+      descripcion: "Mouse INPHIC MP6.",
       caracteristicas: [
         "Categoría: mouse.",
         "Modelo identificado: INPHIC MP6.",
@@ -459,7 +459,7 @@
       destacado: false,
       demo: true,
       precio: 85000,
-      descripcion: "Mouse identificado en el archivo como Ajazz Nacodex NJ08. Se mantiene el nombre compuesto porque ambas marcas aparecen en el archivo.",
+      descripcion: "Mouse Ajazz Nacodex NJ08.",
       caracteristicas: [
         "Categoría: mouse.",
         "Nombre de archivo: Mouse Ajjazz Nacodex NJ08.",
@@ -477,7 +477,7 @@
       destacado: false,
       demo: true,
       precio: 49000,
-      descripcion: "Mouse de perfil delgado identificado en el archivo como Mouse Elegante Delgado Inalámbrico. No hay un código de modelo adicional en el nombre.",
+      descripcion: "Mouse inalámbrico de perfil delgado y diseño elegante.",
       caracteristicas: [
         "Categoría: mouse.",
         "Nombre de archivo: Mouse Elegante Delgado Inalámbrico.",
@@ -495,7 +495,7 @@
       destacado: false,
       demo: true,
       precio: 129000,
-      descripcion: "Control Easy SMX X15, con fotografía original. Se trata como un modelo distinto del X05 y del X05 Pro.",
+      descripcion: "Control Easy SMX X15.",
       caracteristicas: [
         "Categoría: mandos y controles.",
         "Modelo identificado: Easy SMX X15.",
@@ -513,7 +513,7 @@
       destacado: false,
       demo: true,
       precio: 109000,
-      descripcion: "Control Easy SMX X05. Se mantiene separado del X05 Pro porque el nombre de archivo indica un modelo distinto.",
+      descripcion: "Control Easy SMX X05.",
       caracteristicas: [
         "Categoría: mandos y controles.",
         "Modelo identificado: Easy SMX X05.",
@@ -532,7 +532,7 @@
       destacado: true,
       demo: true,
       precio: 139000,
-      descripcion: "Control Easy SMX X05 Pro. Blanco y negro son variantes de color del mismo modelo Pro.",
+      descripcion: "Control Easy SMX X05 Pro, disponible en negro y blanco.",
       caracteristicas: [
         "Categoría: mandos y controles.",
         "Modelo identificado: Easy SMX X05 Pro.",

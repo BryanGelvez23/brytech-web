@@ -6,107 +6,198 @@
   <title>BryTech — Potencia accesible. Calidad real.</title>
   <meta name="description" content="BryTech, tienda de tecnología y accesorios en Cúcuta. Potencia accesible. Calidad real.">
   <link rel="icon" href="assets/logo/Logo_BryTech.jpg">
-  <!-- Las fuentes (Space Grotesk y Manrope) se cargan desde styles.css -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="inicio">
+  <!-- Barra superior, encabezado y menú: los genera js/app.js (renderShell) -->
   <div id="app-header"></div>
+
   <main id="contenido">
 
     <!-- Héroe -->
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <p class="eyebrow">BryTech · Cúcuta</p>
-          <h1>Tecnología clara, útil y al alcance.</h1>
-          <p class="lema">Potencia accesible. Calidad real.</p>
-          <p class="hero-text">Audífonos, mouse, teclados, mandos y accesorios para estudio, oficina, hogar y entretenimiento.</p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="catalogo.html">Ver catálogo</a>
-            <a class="btn btn-ghost" href="https://wa.me/573178385428" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
-          </div>
+    <section class="hero" aria-labelledby="hero-titulo">
+      <div class="hero__content">
+        <p class="hero__eyebrow">Conecta con lo que te mueve</p>
+        <h1 id="hero-titulo">Tu mundo.<br>En otra<br>frecuencia.</h1>
+        <p class="hero__text">Audio, accesorios y tecnología que elevan tu día. Buen diseño y rendimiento, a tu alcance.</p>
+        <div class="hero__actions">
+          <a class="btn btn-primary btn-lg" href="catalogo.html">
+            Explorar tienda
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+          <a class="btn btn-ghost btn-lg" href="#destacados">Ver destacados</a>
         </div>
-        <!-- Foto real destacada: la inserta app.js. Si está vacío, se oculta. -->
-        <div class="hero-media" id="hero-media"></div>
       </div>
+      <!-- IMAGEN ILUSTRATIVA (de la propuesta de Figma). Reemplazar por una foto propia con el mismo nombre. -->
+      <figure class="hero__media">
+        <img src="assets/banners/hero-audio.webp" alt="Audífonos de diadema sobre una base de piedra clara" width="830" height="620" fetchpriority="high">
+        <figcaption class="hero__caption">
+          <span>Audio / Selección BryTech</span>
+          <p>Menos ruido. Más de lo que te gusta.</p>
+        </figcaption>
+      </figure>
     </section>
 
-    <!-- Categorías -->
-    <section>
+    <!-- Categorías (las genera app.js a partir de js/data.js) -->
+    <section class="home-section" id="categorias" aria-labelledby="categorias-titulo">
       <div class="container">
         <div class="section-head">
           <div>
-            <p class="eyebrow">Categorías</p>
-            <h2>Encuentra lo que necesitas</h2>
+            <p class="eyebrow">Elige tu próximo upgrade</p>
+            <h2 id="categorias-titulo">Tecnología a tu manera.</h2>
           </div>
-          <a class="btn btn-ghost" href="catalogo.html">Ver todo el catálogo</a>
+          <a class="link-arrow" href="catalogo.html">
+            Ver categorías
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
         </div>
         <div class="category-grid" id="categorias-destacadas"></div>
       </div>
     </section>
 
-    <!-- Productos destacados -->
-    <section class="section-alt">
+    <!-- Banda oscura (toque gamer) -->
+    <section class="home-section home-section--flush" aria-labelledby="upgrade-titulo">
       <div class="container">
-        <div class="section-head">
-          <div>
-            <p class="eyebrow">Selección</p>
-            <h2>Productos destacados</h2>
-            <p class="muted">Los precios son de demostración mientras se confirma la tarifa comercial.</p>
+        <div class="band">
+          <div class="band__content">
+            <p class="band__eyebrow">Modo upgrade: activado</p>
+            <h2 id="upgrade-titulo">Más precisión.<br>Más control.</h2>
+            <p class="band__text">Dale un nuevo nivel a tu escritorio con nuestra selección de teclados y mouse.</p>
+            <div class="band__actions">
+              <a class="btn btn-primary btn-lg" href="catalogo.html?categoria=teclados">Ver teclados</a>
+              <a class="btn btn-outline-light btn-lg" href="catalogo.html?categoria=mouse">Ver mouse</a>
+            </div>
           </div>
-          <a class="btn btn-ghost" href="catalogo.html">Ver todos</a>
+          <!-- IMAGEN ILUSTRATIVA (de Figma). Reemplazar por una foto propia con el mismo nombre. -->
+          <div class="band__media">
+            <img src="assets/banners/banda-teclado-mouse.webp" alt="Teclado mecánico y mouse sobre un escritorio oscuro" width="772" height="408" loading="lazy">
+            <span class="band__tag">Work / Play / Repeat</span>
+          </div>
         </div>
-        <div class="product-grid" id="productos-destacados"></div>
       </div>
     </section>
 
-    <!-- Banda gaming: la llena app.js con un producto gaming; se oculta si está vacía -->
-    <section class="gaming-band">
-      <div class="container" id="banda-gaming"></div>
+    <!-- Productos destacados (los genera app.js) -->
+    <section class="home-section home-section--flush" id="destacados" aria-labelledby="destacados-titulo">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Buen diseño. Mejor elección.</p>
+            <h2 id="destacados-titulo">Tus próximos esenciales.</h2>
+          </div>
+          <a class="link-arrow" href="catalogo.html">
+            Ver todos los productos
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="product-grid" id="productos-destacados"></div>
+        <p class="section-note">Precios en pesos colombianos (COP). Los precios son de demostración mientras se confirma la tarifa comercial.</p>
+      </div>
+    </section>
+
+    <!-- Editorial -->
+    <section class="home-section home-section--warm" aria-labelledby="estilo-titulo">
+      <div class="container">
+        <div class="section-head">
+          <div>
+            <p class="eyebrow">Pensado para tu día a día</p>
+            <h2 id="estilo-titulo">No es solo tecnología. Es tu estilo.</h2>
+          </div>
+        </div>
+        <div class="editorial-grid">
+          <!-- IMÁGENES ILUSTRATIVAS (de Figma). Reemplazar por fotos propias con el mismo nombre. -->
+          <a class="editorial-card" href="catalogo.html?categoria=teclados">
+            <div class="editorial-card__media">
+              <img src="assets/banners/editorial-escritorio.webp" alt="Escritorio de trabajo con laptop, teclado y mouse" width="642" height="360" loading="lazy">
+              <span class="editorial-card__tag">Edit 01 / Tu escritorio</span>
+            </div>
+            <div class="editorial-card__row">
+              <h3>Un espacio para tus ideas.</h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+            <p>Periféricos y accesorios que hacen fluir tu trabajo.</p>
+          </a>
+          <a class="editorial-card" href="catalogo.html?categoria=audifonos">
+            <div class="editorial-card__media">
+              <img src="assets/banners/editorial-movimiento.webp" alt="Accesorios tecnológicos sobre una mesa junto a una chaqueta y un bolso" width="642" height="360" loading="lazy">
+              <span class="editorial-card__tag">Edit 02 / En movimiento</span>
+            </div>
+            <div class="editorial-card__row">
+              <h3>Lleva tu mundo contigo.</h3>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+            </div>
+            <p>Audio, carga y conexión para salir sin desconectarte.</p>
+          </a>
+        </div>
+      </div>
     </section>
 
     <!-- Confianza: solo hechos verificables -->
-    <section>
-      <div class="container trust-layout">
-        <div class="trust-intro">
-          <p class="eyebrow">BryTech</p>
-          <h2>Hablemos antes de comprar</h2>
-          <p class="muted">Somos una tienda de Cúcuta. Si tienes dudas sobre un producto, escríbenos y te ayudamos a elegir.</p>
-          <a class="btn btn-whatsapp" href="https://wa.me/573178385428" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
+    <section class="trust" aria-label="Por qué comprar en BryTech">
+      <div class="container trust__grid">
+        <div class="trust__item">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+          <h3>Te ayudamos a elegir</h3>
+          <p>Resuelve tus dudas por WhatsApp antes de comprar.</p>
         </div>
-        <ul class="trust-list">
-          <li class="trust-item">
-            <span class="trust-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="9" cy="9" r="2"/><path d="m21 15-3.1-3.1a2 2 0 0 0-2.8 0L6 21"/></svg>
-            </span>
-            <div>
-              <h3>Fotos reales de los productos</h3>
-              <p>Las imágenes son de los productos de BryTech, no de bancos de imágenes.</p>
-            </div>
-          </li>
-          <li class="trust-item">
-            <span class="trust-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
-            </span>
-            <div>
-              <h3>Atención directa</h3>
-              <p>WhatsApp 317 838 5428 e Instagram <a href="https://www.instagram.com/brytech.co/" target="_blank" rel="noopener noreferrer">@BryTech.co</a>.</p>
-            </div>
-          </li>
-          <li class="trust-item">
-            <span class="trust-icon" aria-hidden="true">
-              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 2.6A2 2 0 0 0 11.2 2H4a2 2 0 0 0-2 2v7.2a2 2 0 0 0 .6 1.4l8.7 8.7a2.4 2.4 0 0 0 3.4 0l6.6-6.6a2.4 2.4 0 0 0 0-3.4z"/><circle cx="7.5" cy="7.5" r=".5" fill="currentColor"/></svg>
-            </span>
-            <div>
-              <h3>Precios en pesos colombianos</h3>
-              <p>Todos los valores se muestran en COP.</p>
-            </div>
-          </li>
-        </ul>
+        <div class="trust__item">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></svg>
+          <h3>Tu envío, sin dudas</h3>
+          <p>Consulta cobertura, costos y tiempos para tu ciudad por WhatsApp.</p>
+        </div>
+        <div class="trust__item">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect width="8" height="4" x="8" y="2" rx="1" ry="1"/><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"/><path d="M12 11h4"/><path d="M12 16h4"/><path d="M8 11h.01"/><path d="M8 16h.01"/></svg>
+          <h3>Información clara</h3>
+          <p>Fotos reales de los productos y precios en pesos colombianos.</p>
+        </div>
+        <div class="trust__item">
+          <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 14h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-7a9 9 0 0 1 18 0v7a2 2 0 0 1-2 2h-1a2 2 0 0 1-2-2v-3a2 2 0 0 1 2-2h3"/></svg>
+          <h3>Seguimos en contacto</h3>
+          <p>Un canal directo para preguntas sobre tu compra.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre BryTech -->
+    <section class="home-section" id="nosotros" aria-labelledby="nosotros-titulo">
+      <div class="container about">
+        <div>
+          <p class="eyebrow eyebrow--blue">Somos BryTech</p>
+          <h2 id="nosotros-titulo">Potencia accesible.<br>Calidad real.</h2>
+          <p>Creemos que la buena tecnología debe hacer tu vida más fácil, no más costosa. Por eso reunimos opciones para trabajar, crear, jugar y conectar, con una atención que habla tu mismo idioma.</p>
+          <a class="btn btn-ghost btn-lg" href="https://www.instagram.com/BryTech.co/" target="_blank" rel="noopener noreferrer">
+            Conoce BryTech en Instagram
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17 17 7"/><path d="M7 7h10v10"/></svg>
+          </a>
+        </div>
+        <!-- IMAGEN ILUSTRATIVA (de Figma). Reemplazar por una foto propia con el mismo nombre. -->
+        <div class="about__media">
+          <img src="assets/banners/nosotros-vida-real.webp" alt="Persona trabajando en una laptop con audífonos sobre la mesa" width="720" height="418" loading="lazy">
+        </div>
+      </div>
+    </section>
+
+    <!-- Contacto / Instagram (reemplaza el boletín del diseño, que requeriría backend) -->
+    <section class="cta-band" aria-labelledby="cta-titulo">
+      <div class="container cta-band__inner">
+        <div>
+          <p class="eyebrow">Mantente en otra frecuencia</p>
+          <h2 id="cta-titulo">Lo nuevo, antes que nadie.</h2>
+          <p>Novedades y selecciones en nuestro Instagram. ¿Dudas? Escríbenos por WhatsApp.</p>
+        </div>
+        <div class="cta-band__actions">
+          <a class="btn btn-primary btn-lg" href="https://www.instagram.com/BryTech.co/" target="_blank" rel="noopener noreferrer">Seguir en Instagram</a>
+          <a class="btn btn-outline-light btn-lg" href="https://wa.me/573178385428" target="_blank" rel="noopener noreferrer">Escribir por WhatsApp</a>
+        </div>
       </div>
     </section>
 
   </main>
+
+  <!-- Pie de página, botón de WhatsApp y avisos: los genera js/app.js (renderShell) -->
   <div id="app-footer"></div>
   <script src="js/data.js"></script>
   <script src="js/cart.js"></script>

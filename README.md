@@ -30,7 +30,7 @@ brytech-web/
 ├── pedido.html             Consulta de pedido (RF07)
 ├── cuenta.html             Registro e inicio de sesión (RF11)
 ├── admin.html              Preparación de backoffice (RF08–RF10)
-├── styles.css
+├── styles.css              Diseño (variables en :root)
 ├── js/
 │   ├── data.js             Catálogo centralizado
 │   ├── cart.js             Carrito y simulación local
@@ -96,7 +96,19 @@ El resto de modelos tiene una sola fotografía y se trata como un producto con u
 
 `assets/identidad/`, `assets/banners/`, `assets/redes/`, `assets/productos/combos/`, `assets/productos/accesorios/`, `assets/productos/otros/`.
 
-No hay banners propios: el encabezado de inicio usa un bloque tipográfico, no una imagen inventada.
+### Imágenes ilustrativas de la página de inicio (REEMPLAZAR por fotos propias)
+
+Estas cinco imágenes vienen de la propuesta de diseño de Figma. **No son fotos de productos de BryTech**: sirven para que el diseño se vea completo. Para cambiarlas, guarda tu foto con el **mismo nombre** y formato en `assets/banners/` (no hay que tocar código):
+
+| Archivo | Dónde se ve | Tamaño recomendado |
+|---|---|---|
+| `hero-audio.webp` | Imagen grande del héroe (arriba, derecha) | 1660 × 1240 px |
+| `banda-teclado-mouse.webp` | Banda oscura "Más precisión. Más control." | 1544 × 816 px |
+| `editorial-escritorio.webp` | Sección "Es tu estilo", tarjeta 1 | 1284 × 720 px |
+| `editorial-movimiento.webp` | Sección "Es tu estilo", tarjeta 2 | 1284 × 720 px |
+| `nosotros-vida-real.webp` | Sección "Somos BryTech" | 1440 × 836 px |
+
+Mientras tanto, los textos de esas secciones (por ejemplo "Audio / Selección BryTech") están escritos en `index.html` y se pueden editar allí.
 
 ## Arquitectura futura: Spring Boot + MySQL
 
@@ -152,15 +164,27 @@ Los totales y el stock definitivos **nunca** deben tomarse del navegador.
 - Recalcular precios e inventario al confirmar el pedido.
 - No persistir secretos ni contraseñas en el frontend.
 
-## Paleta (variables CSS)
+## Diseño y paleta (variables CSS en `styles.css`)
 
-| Color | Código | Uso |
+El diseño sigue la propuesta de Figma: tipografía **Inter**, fondos cálidos, un solo azul de acento y una banda oscura como toque gamer. Todos los colores están en `:root` de `styles.css`; cambiar `--blue` cambia el acento en todo el sitio.
+
+| Variable | Código | Uso |
 |---|---|---|
-| Grafito | `#111318` | Textos fuertes, pie, banner |
-| Blanco | `#FFFFFF` | Fondos |
-| Azul eléctrico | `#2563EB` | Botones, enlaces, acentos |
-| Gris acero | `#64748B` | Textos secundarios |
-| Gris claro | `#F1F5F9` | Superficies y separadores |
+| `--ink` | `#17191C` | Texto principal, barra superior |
+| `--muted` | `#66696E` | Texto secundario |
+| `--blue` | `#1555F5` | Botones, enlaces, estado activo |
+| `--line` | `#DDDFE2` | Bordes y separadores |
+| `--warm` | `#F5F4F0` | Fondo cálido de secciones |
+| `--media` | `#EDEFF2` | Fondo detrás de las fotos de producto |
+| `--dark` | `#101319` | Banda oscura y bloque de contacto |
+
+### Cómo está armada la página de inicio
+
+- `index.html` contiene el héroe, la banda oscura, la sección editorial, la fila de confianza y el bloque "Somos BryTech" (texto e imágenes de `assets/banners/`).
+- `js/app.js` genera la barra superior, el encabezado, el pie, las categorías y los productos destacados a partir de `js/data.js`.
+- Las categorías con productos aparecen solas en la página de inicio; los lemas de cada una están en `lema` dentro de `CATEGORIAS` (`js/data.js`).
+- El botón "+" de cada tarjeta agrega al carrito si el producto tiene un solo color; si tiene varios, abre la ficha para elegir.
+- La newsletter del diseño original no se implementó (requeriría backend): ese bloque lleva a Instagram y WhatsApp.
 
 ## Limitaciones del prototipo
 

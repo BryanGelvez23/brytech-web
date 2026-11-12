@@ -7,7 +7,7 @@
   <link rel="icon" href="assets/logo/Logo_BryTech.jpg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,600;0,9..40,700;0,9..40,800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body data-page="checkout">
@@ -36,7 +36,7 @@
           <p>Conexión futura: <code>POST /api/pedidos</code> en Spring Boot validaría cliente, precios e inventario en el servidor.</p>
           <a class="btn btn-primary" href="pedido.html">Consultar pedido</a>
         </div>
-        <form class="form" id="form-checkout">
+        <form class="form" id="form-checkout" novalidate>
           <div id="checkout-mensaje"></div>
           <label>Nombre completo
             <input id="nombre" name="nombre" autocomplete="name" required>

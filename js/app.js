@@ -7,10 +7,6 @@
   var WHATSAPP = "https://wa.me/573178385428";
   var INSTAGRAM = "https://www.instagram.com/BryTech.co/";
 
-  // Productos que protagonizan el héroe y la banda gaming del inicio.
-  // Si el id no existe en data.js, el héroe usa el primer destacado y la banda se oculta.
-  var ID_PRODUCTO_HEROE = "asus-idol-r27";
-  var ID_PRODUCTO_GAMING = "onikuma-gt808";
 
   function qs(id) {
     return document.getElementById(id);
@@ -38,20 +34,36 @@
     return '<svg width="' + (size || 20) + '" height="' + (size || 20) + '" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' + paths + "</svg>";
   }
 
-  function svgCart() {
-    return icono('<path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1.2"/><circle cx="18" cy="20" r="1.2"/><path d="M6 6 5 3H2"/>');
+  function svgBag() {
+    return icono('<path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><path d="M3 6h18"/><path d="M16 10a4 4 0 0 1-8 0"/>', 22);
+  }
+
+  function svgUser() {
+    return icono('<path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/>', 22);
   }
 
   function svgSearch() {
-    return icono('<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>');
+    return icono('<circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/>', 18);
   }
 
   function svgMenu() {
-    return icono('<path d="M4 6h16M4 12h16M4 18h16"/>');
+    return icono('<path d="M4 6h16M4 12h16M4 18h16"/>', 22);
   }
 
-  function svgBox() {
-    return icono('<path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"/><path d="m3.3 7 8.7 5 8.7-5"/><path d="M12 22V12"/>', 32);
+  function svgArrowUpRight() {
+    return icono('<path d="M7 17 17 7"/><path d="M7 7h10v10"/>', 18);
+  }
+
+  function svgPlus() {
+    return icono('<path d="M12 5v14M5 12h14"/>', 18);
+  }
+
+  function svgChat() {
+    return icono('<path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/>', 20);
+  }
+
+  function svgInstagram() {
+    return icono('<rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/>', 20);
   }
 
   function svgWhatsApp() {
@@ -74,73 +86,91 @@
     if (header) {
       header.innerHTML =
         '<a class="skip-link" href="#contenido">Saltar al contenido</a>' +
+        '<div class="topbar"><div class="container topbar__inner">' +
+          '<span class="topbar__text">Tecnología para tu día a día. Atención directa por WhatsApp.</span>' +
+          '<a href="' + WHATSAPP + '" target="_blank" rel="noopener noreferrer">Hablemos por WhatsApp ↗</a>' +
+        "</div></div>" +
         '<header class="site-header">' +
           '<div class="container header-inner">' +
-            '<a class="brand" href="index.html">' +
-              '<img class="brand__logo" src="assets/logo/Logo_BryTech.jpg" width="44" height="44" alt="Logo de BryTech">' +
-              '<span class="brand__text"><span class="brand__name">BryTech</span><span class="brand__tag">Potencia accesible. Calidad real.</span></span>' +
+            '<a class="brand" href="index.html" aria-label="BryTech, inicio">' +
+              '<img class="brand__logo" src="assets/logo/Logo_BryTech.jpg" width="140" height="140" alt="BryTech. Potencia accesible. Calidad real.">' +
             "</a>" +
             '<nav class="nav" aria-label="Principal">' +
               navLink("index.html", "Inicio") +
-              navLink("catalogo.html", "Catálogo") +
-              navLink("pedido.html", "Pedido") +
-              navLink("cuenta.html", "Cuenta") +
+              navLink("catalogo.html", "Tienda") +
+              navLink("index.html#categorias", "Categorías") +
+              navLink("index.html#nosotros", "Nosotros") +
+              navLink("index.html#contacto", "Contacto") +
             "</nav>" +
             '<div class="search-panel" id="search-panel">' +
               '<form class="search-form" action="catalogo.html" method="get" role="search">' +
                 '<label class="sr-only" for="q-header">Buscar productos</label>' +
-                '<input id="q-header" name="q" type="search" placeholder="Buscar productos">' +
-                '<button type="submit">Buscar</button>' +
+                '<button class="search-form__btn" type="submit" aria-label="Buscar">' + svgSearch() + "</button>" +
+                '<input id="q-header" name="q" type="search" placeholder="¿Qué estás buscando?" autocomplete="off">' +
               "</form>" +
             "</div>" +
             '<div class="header-actions">' +
               '<button class="search-toggle" type="button" aria-label="Buscar" aria-expanded="false" aria-controls="search-panel" data-search-toggle>' + svgSearch() + "</button>" +
-              '<a class="cart-link" href="carrito.html" aria-label="Carrito de compras">' +
-                svgCart() +
-                '<span class="cart-badge" data-cart-count hidden>0</span>' +
+              '<a class="icon-link" href="cuenta.html" aria-label="Mi cuenta">' + svgUser() + "</a>" +
+              '<a class="icon-link cart-link" href="carrito.html" aria-label="Carrito de compras">' +
+                svgBag() +
+                '<span class="cart-count" data-cart-count>0</span>' +
               "</a>" +
               '<button class="nav-toggle" type="button" aria-label="Menú" aria-expanded="false" aria-controls="mobile-nav" data-nav-toggle>' + svgMenu() + "</button>" +
             "</div>" +
           "</div>" +
           '<nav class="mobile-nav" id="mobile-nav" aria-label="Menú móvil">' +
             navLink("index.html", "Inicio") +
-            navLink("catalogo.html", "Catálogo") +
+            navLink("catalogo.html", "Tienda") +
+            navLink("index.html#categorias", "Categorías") +
+            navLink("index.html#nosotros", "Nosotros") +
+            navLink("index.html#contacto", "Contacto") +
             navLink("carrito.html", "Carrito") +
             navLink("pedido.html", "Consultar pedido") +
-            navLink("cuenta.html", "Cuenta") +
+            navLink("cuenta.html", "Mi cuenta") +
           "</nav>" +
         "</header>";
     }
 
     if (footer) {
+      var enlacesCategorias = categoriasConProductos().map(function (c) {
+        return '<li><a href="catalogo.html?categoria=' + c.categoria.id + '">' + c.categoria.nombre + "</a></li>";
+      }).join("");
       footer.innerHTML =
-        '<footer class="footer">' +
+        '<footer class="footer" id="contacto">' +
           '<div class="container footer-grid">' +
-            '<div>' +
-              '<div class="footer-brand">' +
-                '<img src="assets/logo/Logo_BryTech.jpg" alt="Logo de BryTech">' +
-                '<div><strong>BryTech</strong><div>Potencia accesible. Calidad real.</div></div>' +
+            '<div class="footer-brand">' +
+              '<img class="footer-brand__logo" src="assets/logo/Logo_BryTech.jpg" width="200" height="200" alt="BryTech. Potencia accesible. Calidad real." loading="lazy">' +
+              "<p>Tecnología y accesorios · Cúcuta, Colombia</p>" +
+            "</div>" +
+            '<div class="footer-col">' +
+              "<h2>Explora</h2>" +
+              '<ul><li><a href="catalogo.html">Tienda</a></li>' + enlacesCategorias + "</ul>" +
+            "</div>" +
+            '<div class="footer-col">' +
+              "<h2>Estamos para ti</h2>" +
+              "<ul>" +
+                '<li><a href="' + WHATSAPP + '" target="_blank" rel="noopener noreferrer">Contacto por WhatsApp</a></li>' +
+                '<li><a href="pedido.html">Estado del pedido</a></li>' +
+                '<li><a href="cuenta.html">Mi cuenta</a></li>' +
+                '<li><a href="carrito.html">Carrito</a></li>' +
+              "</ul>" +
+            "</div>" +
+            '<div class="footer-col">' +
+              "<h2>Hablemos de tecnología.</h2>" +
+              '<div class="footer-contact">' + svgChat() +
+                '<div><small>WhatsApp</small><a href="' + WHATSAPP + '" target="_blank" rel="noopener noreferrer"><strong>317 838 5428</strong></a></div>' +
               "</div>" +
-              '<p>Tienda de tecnología y accesorios en Cúcuta, Norte de Santander, Colombia.</p>' +
-            "</div>" +
-            '<div class="footer-links">' +
-              "<strong>Explorar</strong>" +
-              '<a href="catalogo.html">Catálogo</a>' +
-              '<a href="carrito.html">Carrito</a>' +
-              '<a href="pedido.html">Estado del pedido</a>' +
-              '<a href="cuenta.html">Mi cuenta</a>' +
-            "</div>" +
-            '<div class="footer-links">' +
-              "<strong>Contacto</strong>" +
-              '<a href="' + INSTAGRAM + '" target="_blank" rel="noopener noreferrer">Instagram: @BryTech.co</a>' +
-              '<a href="' + WHATSAPP + '" target="_blank" rel="noopener noreferrer">WhatsApp: 317 838 5428</a>' +
-              "<span>Cúcuta, Norte de Santander</span>" +
+              '<div class="footer-contact">' + svgInstagram() +
+                '<div><a href="' + INSTAGRAM + '" target="_blank" rel="noopener noreferrer">BryTech.co ↗</a></div>' +
+              "</div>" +
+              '<p class="footer-note">¿No sabes cuál elegir? Escríbenos y encuentra tu próximo esencial.</p>' +
             "</div>" +
           "</div>" +
-          '<div class="container footer-bottom">' +
+          '<div class="footer-bottom"><div class="container footer-bottom__inner">' +
             "<span>© " + new Date().getFullYear() + " BryTech. Sitio en desarrollo: los precios son de demostración y el carrito se guarda solo en tu navegador, sin pedidos reales.</span>" +
-            '<a href="admin.html">Panel administrativo (prototipo)</a>' +
-          "</div>" +
+            '<span class="footer-bottom__links"><a href="admin.html">Panel administrativo (prototipo)</a><span>Colombia · COP</span></span>' +
+          "</div></div>" +
         "</footer>" +
         '<a class="whatsapp-fab" href="' + WHATSAPP + '" target="_blank" rel="noopener noreferrer" aria-label="Escribir a BryTech por WhatsApp">' +
           svgWhatsApp() +
@@ -170,115 +200,144 @@
         }
       });
     }
+
+    // El encabezado se compacta al bajar (el logo grande solo se ve arriba).
+    var cabecera = document.querySelector(".site-header");
+    function compactarCabecera() {
+      if (cabecera) {
+        cabecera.classList.toggle("is-compact", window.scrollY > 40);
+      }
+    }
+    window.addEventListener("scroll", compactarCabecera, { passive: true });
+    compactarCabecera();
+
     BryTechCart.actualizarContador();
   }
 
-  function tarjetaProducto(producto) {
+  /**
+   * Las fotos originales tienen dos tipos de fondo: blanco o gris claro.
+   * Las de fondo blanco se funden con la tarjeta mediante "multiply" (CSS);
+   * las de fondo gris se marcan con la clase .foto-gris para no oscurecerlas.
+   * Si el navegador bloquea la lectura (p. ej. abriendo el archivo con file://),
+   * simplemente se deja el comportamiento por defecto.
+   */
+  function prepararFotos(contenedor) {
+    if (!contenedor) {
+      return;
+    }
+    var canvas = document.createElement("canvas");
+    canvas.width = 1;
+    canvas.height = 1;
+    var ctx = canvas.getContext("2d", { willReadFrequently: true });
+    contenedor.querySelectorAll("img[data-foto]").forEach(function (img) {
+      function medir() {
+        try {
+          ctx.clearRect(0, 0, 1, 1);
+          ctx.drawImage(img, 2, 2, 4, 4, 0, 0, 1, 1);
+          var px = ctx.getImageData(0, 0, 1, 1).data;
+          if (px[3] > 0 && Math.min(px[0], px[1], px[2]) < 250) {
+            img.classList.add("foto-gris");
+          }
+        } catch (error) {
+          /* sin acceso a los píxeles: se mantiene el estilo por defecto */
+        }
+      }
+      if (img.complete && img.naturalWidth) {
+        medir();
+      } else {
+        img.addEventListener("load", medir, { once: true });
+      }
+    });
+  }
+
+  /** Categorías que ya tienen al menos un producto, con su producto representativo. */
+  function categoriasConProductos() {
+    return BryTechData.CATEGORIAS.map(function (categoria) {
+      var lista = BryTechData.PRODUCTOS.filter(function (p) {
+        return p.categoria === categoria.id;
+      });
+      var destacados = lista.filter(function (p) {
+        return p.destacado;
+      });
+      return { categoria: categoria, total: lista.length, producto: destacados[0] || lista[0] || null };
+    }).filter(function (c) {
+      return c.producto;
+    });
+  }
+
+  /** Hasta n productos destacados, intentando variar de categoría. */
+  function destacadosVariados(n) {
+    var elegidos = [];
+    var vistas = {};
+    var destacados = BryTechData.productosDestacados();
+    destacados.forEach(function (p) {
+      if (elegidos.length < n && !vistas[p.categoria]) {
+        vistas[p.categoria] = true;
+        elegidos.push(p);
+      }
+    });
+    destacados.forEach(function (p) {
+      if (elegidos.length < n && elegidos.indexOf(p) === -1) {
+        elegidos.push(p);
+      }
+    });
+    return elegidos;
+  }
+
+  function tarjetaProducto(producto, sinInsignia) {
     var variante = producto.variantes[0];
     var img = BryTechData.imagenPrincipal(producto, variante);
-    var swatches = producto.variantes.length > 1 ? producto.variantes.map(function (v) {
-      var light = v.hex === "#f8fafc" || v.hex === "#ffffff" || v.hex === "#cbd5e1" ? " is-light" : "";
-      return '<span class="swatch' + light + '" style="background:' + v.hex + '" title="' + v.color + '"></span>';
+    var mostrarColores = producto.variantes.length > 1 || variante.color !== "Único";
+    var swatches = mostrarColores ? producto.variantes.map(function (v) {
+      return '<span class="swatch" style="background:' + v.hex + '" title="' + v.color + '"></span>';
     }).join("") : "";
-    var detalle = producto.variantes.length > 1
-      ? producto.variantes.length + " colores"
-      : (variante.color === "Único" ? "" : variante.color);
     var categoria = (BryTechData.obtenerCategoria(producto.categoria) || {}).nombre || "";
     var enlace = "producto.html?id=" + encodeURIComponent(producto.id);
+    var insignia = producto.destacado && sinInsignia !== true ? '<span class="badge">Selección BryTech</span>' : "";
+    // Con un solo color se agrega directo; con varios, se elige el color en la ficha.
+    var accion = producto.variantes.length === 1
+      ? '<button class="icon-btn" type="button" data-add="' + producto.id + '" data-variante="' + variante.id + '" aria-label="Agregar ' + producto.nombre + ' al carrito">' + svgPlus() + "</button>"
+      : '<a class="icon-btn" href="' + enlace + '" aria-label="Elegir color de ' + producto.nombre + '">' + svgPlus() + "</a>";
     return (
       '<article class="product-card">' +
         '<a class="product-card__media" href="' + enlace + '" tabindex="-1" aria-hidden="true">' +
-          '<img src="' + img + '" alt="' + producto.nombre + '" loading="lazy" decoding="async">' +
+          '<img data-foto src="' + img + '" alt="' + producto.nombre + '" loading="lazy" decoding="async">' +
+          insignia +
         "</a>" +
         '<div class="product-card__body">' +
           '<p class="product-card__cat">' + categoria + "</p>" +
           '<h3><a href="' + enlace + '">' + producto.nombre + "</a></h3>" +
-          (detalle ? '<p class="muted">' + detalle + "</p>" : "") +
-          '<p class="price">' + BryTechData.formatearCOP(producto.precio) + "</p>" +
-          '<span class="demo-chip">Precio demo</span>' +
-          (swatches ? '<div class="swatches" aria-hidden="true">' + swatches + "</div>" : "") +
+          '<div class="swatches" aria-hidden="true">' + swatches + "</div>" +
+          '<div class="product-card__foot">' +
+            '<p class="price">' + BryTechData.formatearCOP(producto.precio) + "</p>" +
+            accion +
+          "</div>" +
         "</div>" +
       "</article>"
     );
   }
 
-  /** Producto con foto que representa a una categoría (el destacado, o el primero). */
-  function representanteCategoria(idCategoria) {
-    var lista = BryTechData.PRODUCTOS.filter(function (p) {
-      return p.categoria === idCategoria;
-    });
-    var destacados = lista.filter(function (p) {
-      return p.destacado;
-    });
-    return { total: lista.length, producto: destacados[0] || lista[0] || null };
-  }
-
   function initInicio() {
     var cats = qs("categorias-destacadas");
     var dest = qs("productos-destacados");
-    var hero = qs("hero-media");
-    var banda = qs("banda-gaming");
-
-    if (hero) {
-      var pHero = BryTechData.obtenerProducto(ID_PRODUCTO_HEROE) || BryTechData.productosDestacados()[0];
-      if (pHero) {
-        hero.innerHTML =
-          '<a class="hero-media__link" href="producto.html?id=' + encodeURIComponent(pHero.id) + '">' +
-            '<img src="' + BryTechData.imagenPrincipal(pHero, pHero.variantes[0]) + '" alt="' + pHero.nombre + '" fetchpriority="high">' +
-            '<span class="hero-media__tag">' + pHero.nombre + "</span>" +
-          "</a>";
-      }
-    }
 
     if (cats) {
-      cats.innerHTML = BryTechData.CATEGORIAS.map(function (c) {
-        var info = representanteCategoria(c.id);
-        if (!info.producto) {
-          return (
-            '<div class="category-card category-card--soon">' +
-              '<div class="category-card__media category-card__media--empty">' + svgBox() + "</div>" +
-              "<strong>" + c.nombre + "</strong>" +
-              "<span>" + c.descripcion + "</span>" +
-              '<small class="category-card__count">Próximamente</small>' +
-            "</div>"
-          );
-        }
-        var cuenta = info.total + (info.total === 1 ? " producto" : " productos");
+      cats.innerHTML = categoriasConProductos().map(function (info) {
+        var c = info.categoria;
         return (
           '<a class="category-card" href="catalogo.html?categoria=' + c.id + '">' +
-            '<div class="category-card__media"><img src="' + BryTechData.imagenPrincipal(info.producto, info.producto.variantes[0]) + '" alt="" loading="lazy" decoding="async"></div>' +
-            "<strong>" + c.nombre + "</strong>" +
-            "<span>" + c.descripcion + "</span>" +
-            '<small class="category-card__count">' + cuenta + "</small>" +
+            '<div class="category-card__media"><img data-foto src="' + BryTechData.imagenPrincipal(info.producto, info.producto.variantes[0]) + '" alt="" loading="lazy" decoding="async"></div>' +
+            '<div class="category-card__row"><strong>' + c.nombre + "</strong>" + svgArrowUpRight() + "</div>" +
+            '<span class="category-card__lema">' + (c.lema || c.descripcion) + "</span>" +
           "</a>"
         );
       }).join("");
+      prepararFotos(cats);
     }
 
     if (dest) {
-      dest.innerHTML = BryTechData.productosDestacados().slice(0, 4).map(tarjetaProducto).join("");
-    }
-
-    if (banda) {
-      var pg = BryTechData.obtenerProducto(ID_PRODUCTO_GAMING);
-      if (pg) {
-        var enlaceG = "producto.html?id=" + encodeURIComponent(pg.id);
-        banda.innerHTML =
-          '<article class="gaming-card">' +
-            "<div>" +
-              '<p class="eyebrow">Gaming</p>' +
-              "<h2>" + pg.nombre + "</h2>" +
-              '<p class="gaming-card__text">Diadema para estudio, oficina y gaming.</p>' +
-              '<div class="hero-actions">' +
-                '<a class="btn btn-primary" href="' + enlaceG + '">Ver producto</a>' +
-                '<a class="btn btn-ghost" href="catalogo.html?categoria=' + pg.categoria + '">Ver más diademas</a>' +
-              "</div>" +
-            "</div>" +
-            '<a class="gaming-card__media" href="' + enlaceG + '" tabindex="-1" aria-hidden="true">' +
-              '<img src="' + BryTechData.imagenPrincipal(pg, pg.variantes[0]) + '" alt="' + pg.nombre + '" loading="lazy" decoding="async">' +
-            "</a>" +
-          "</article>";
-      }
+      dest.innerHTML = destacadosVariados(4).map(function (p) { return tarjetaProducto(p, true); }).join("");
+      prepararFotos(dest);
     }
   }
 
@@ -301,7 +360,8 @@
     }
     var filtros = leerFiltrosFormulario();
     var lista = BryTechData.filtrarProductos(filtros);
-    grid.innerHTML = lista.map(tarjetaProducto).join("");
+    grid.innerHTML = lista.map(function (p) { return tarjetaProducto(p); }).join("");
+    prepararFotos(grid);
     if (meta) {
       meta.textContent = lista.length + (lista.length === 1 ? " producto" : " productos") + " · precios de demostración";
     }
@@ -361,12 +421,18 @@
     var imagenes = (varianteSel.imagenes && varianteSel.imagenes.length ? varianteSel.imagenes : producto.imagenes).slice();
     var categoria = BryTechData.obtenerCategoria(producto.categoria);
 
-    // Solo se muestran características aptas para el cliente; las notas internas del
-    // prototipo (pendientes, carpetas, nombres de archivo) se omiten de la ficha.
-    var caracteristicas = producto.caracteristicas.filter(function (c) {
-      return !/pendiente|carpeta|archivo/i.test(c);
+    // Ficha: categoría y colores salen de los datos del catálogo. De "caracteristicas"
+    // solo se muestran las especificaciones reales; las notas internas se omiten.
+    var NOTAS_INTERNAS = /pendiente|carpeta|archivo|identificad|prototipo|agrupa|empaque|^categor/i;
+    var especificaciones = producto.caracteristicas.filter(function (c) {
+      return !NOTAS_INTERNAS.test(c);
     });
-    var hayFichaIncompleta = caracteristicas.length !== producto.caracteristicas.length;
+    var datosBasicos = ["Categoría: " + (categoria ? categoria.nombre : "")];
+    if (producto.variantes.length > 1 || producto.variantes[0].color !== "Único") {
+      datosBasicos.push("Colores: " + producto.variantes.map(function (v) { return v.color; }).join(", "));
+    }
+    var caracteristicas = datosBasicos.concat(especificaciones);
+    var hayFichaIncompleta = especificaciones.length === 0;
 
     function render() {
       var principal = BryTechData.encodeRuta(imagenes[0]);
@@ -406,7 +472,7 @@
               '<button class="btn btn-primary" type="submit">Agregar al carrito</button>' +
             "</form>" +
             '<p class="muted product-wa">¿Quieres confirmar la disponibilidad? <a href="' + consultaWA + '" target="_blank" rel="noopener noreferrer">Consúltala por WhatsApp</a> antes de hacer tu pedido.</p>' +
-            "<h2>Características</h2>" +
+            "<h2>Detalles</h2>" +
             '<ul class="feature-list">' + caracteristicas.map(function (c) { return "<li>" + c + "</li>"; }).join("") + "</ul>" +
             (hayFichaIncompleta ? '<p class="muted">Estamos completando las especificaciones técnicas. Pregúntanos por WhatsApp si necesitas un dato en particular.</p>' : "") +
           "</div>" +
@@ -675,6 +741,16 @@
       return "<tr><td>" + p.id + "</td><td>" + p.nombre + "</td><td>" + p.categoria + "</td><td>" + BryTechData.formatearCOP(p.precio) + "</td><td>" + p.variantes.length + "</td><td>stock no verificado</td></tr>";
     }).join("");
   }
+
+  // Botón "+" de las tarjetas: agrega el producto de un solo color al carrito.
+  document.addEventListener("click", function (ev) {
+    var boton = ev.target.closest ? ev.target.closest("[data-add]") : null;
+    if (!boton) {
+      return;
+    }
+    var res = BryTechCart.agregar(boton.getAttribute("data-add"), boton.getAttribute("data-variante"), 1);
+    mostrarToast(res.mensaje);
+  });
 
   document.addEventListener("DOMContentLoaded", function () {
     renderShell();

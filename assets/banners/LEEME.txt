@@ -1,0 +1,12 @@
+IMAGENES ILUSTRATIVAS (de la propuesta de diseno de Figma)
+
+No son fotos de productos de BryTech. Sirven para que la pagina de inicio se vea completa.
+Reemplazalas por fotos propias guardandolas con el MISMO NOMBRE y formato:
+
+  hero-audio.webp             imagen grande del heroe
+  banda-teclado-mouse.webp    banda oscura "Mas precision. Mas control."
+  editorial-escritorio.webp   seccion "Es tu estilo" (tarjeta 1)
+  editorial-movimiento.webp   seccion "Es tu estilo" (tarjeta 2)
+  nosotros-vida-real.webp     seccion "Somos BryTech"
+
+Ver tamanos recomendados en README.md.
