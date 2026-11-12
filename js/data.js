@@ -66,9 +66,9 @@
         "Modelo identificado en el archivo: ASUS Idol R-27.",
         "Información técnica pendiente de verificación."
       ],
-      imagenes: ["assets/productos/audífonos/_ Audífonos ASUS Idol R-27.png"],
+      imagenes: ["assets/productos/audífonos/Audífonos ASUS Idol R-27.png"],
       variantes: [
-        { id: "idol-r27-negro", color: "Negro", hex: "#111318", imagenes: ["assets/productos/audífonos/_ Audífonos ASUS Idol R-27.png"], sku: null, stock: null }
+        { id: "idol-r27-negro", color: "Negro", hex: "#111318", imagenes: ["assets/productos/audífonos/Audífonos ASUS Idol R-27.png"], sku: null, stock: null }
       ]
     },
     {
